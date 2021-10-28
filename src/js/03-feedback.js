@@ -19,6 +19,8 @@ function onFormSubmit(event) {
 function filledForm() {
     const savedData = JSON.parse(localStorage.getItem(FEEDBACK_FORM_KEY));
     if(savedData) {
-    
+            form.email.value = savedData.email;
+            form.message.value = savedData.message;
     }
 }
+
