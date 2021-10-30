@@ -11,10 +11,17 @@ function onSavingFormData(event) {
     localStorage.setItem(FEEDBACK_FORM_KEY, JSON.stringify(feedbackFormData))
 }
 function onFormSubmit(event) {
-    console.log(JSON.parse(localStorage.getItem(FEEDBACK_FORM_KEY)))
     event.preventDefault();
+    const {
+        elements: { email, message }
+    } = event.currentTarget;
+    if (email.value === "" || message.value === "") {
+    alert("Заполните все поля!")
+    } else {
+    console.log(JSON.parse(localStorage.getItem(FEEDBACK_FORM_KEY)))
     event.currentTarget.reset();
     localStorage.removeItem(FEEDBACK_FORM_KEY);
+    }
 }
 
 function filledForm() {
